@@ -18,9 +18,10 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   if (!product) redirect("/");
 
   const similarProducts = await getSimilarProducts(id);
+
   return (
     <div className="product-container">
-      <div className="flex gap-28 xl-flex-row flex-col">
+      <div className="flex gap-28 xl:flex-row flex-col">
         <div className="product-image">
           <Image
             src={product.image}
@@ -69,6 +70,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                   height={20}
                 />
               </div>
+
               <div className="p-2 bg-white-200 rounded-10">
                 <Image
                   src="/assets/icons/share.svg"
@@ -79,6 +81,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
             </div>
           </div>
+
           <div className="product-info">
             <div className="flex flex-col gap-2">
               <p className="text-[34px] text-secondary font-bold">
@@ -88,6 +91,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
                 {product.currency} {formatNumber(product.originalPrice)}
               </p>
             </div>
+
             <div className="flex flex-col gap-4">
               <div className="flex gap-3">
                 <div className="product-stars">
@@ -116,11 +120,12 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               </div>
 
               <p className="text-sm text-black opacity-50">
-                <span className="text-primary-green font-semibold">93%</span> of
-                buyers have recommended this
+                <span className="text-primary-green font-semibold">93% </span>{" "}
+                of buyers have recommeded this.
               </p>
             </div>
           </div>
+
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap">
               <PriceInfoCard
@@ -153,10 +158,12 @@ const ProductDetails = async ({ params: { id } }: Props) => {
               />
             </div>
           </div>
+
           <Modal productId={id} />
         </div>
       </div>
-      <div className="flex flex-col gap-16 ">
+
+      <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-5">
           <h3 className="text-2xl text-secondary font-semibold">
             Product Description
@@ -176,7 +183,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
           />
 
           <Link href="/" className="text-base text-white">
-            Buy now
+            Buy Now
           </Link>
         </button>
       </div>
